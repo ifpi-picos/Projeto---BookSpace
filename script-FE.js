@@ -84,3 +84,26 @@ function listarLivros(){
         })
     }
 }
+
+function removerLivro(){
+  rl.question('Digite o número do livro que você deseja remover:', (numero) =>{
+    let livroEncontrado = false
+
+    for(let i = 0; i < biblioteca.length; i++ ){
+      if(i+1 === Number(numero)){
+        biblioteca.splice(i, 1)
+        salvarBiblioteca()
+        livroEncontrado = true
+        break
+      }
+    }
+    if (livroEncontrado) {
+      console.log('Livro excluído com sucesso!')
+    } else {
+      console.log('Livro não encontrado.')
+    }
+    
+    menu()
+
+  })
+}
