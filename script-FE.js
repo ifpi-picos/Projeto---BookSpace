@@ -28,7 +28,6 @@ function cadastroLivro() {
 function salvarBiblioteca(){
     let json_biblioteca = JSON.stringify(biblioteca)
     fs.writeFileSync('biblioteca.txt', 'utf8')
-    biblioteca = JSON.parse(data)
     console.log('Biblioteca salva com sucesso!')
 }
 
@@ -45,15 +44,16 @@ function LoadBiblioteca(){
 //Função para listar todos os livros da biblioteca, caso tenha algum.
 function listarLivros(){
     if(biblioteca.length === 0){
-        console.log|('Nenhum livro foi encontrado.')
+        console.log('Nenhum livro foi encontrado.')
         menu()
     } else {
-        rl.question('Deseja ordenar os livros por : \n 1. Título \n 2.Data de publicação', (opcao) =>{
+        rl.question('Deseja ordenar os livros por : \n 1. Título \n 2. Data de publicação', (opcao) =>{
           let livrosOrdenados = []
           switch (Number(opcao)) {
             case 1:
               livrosOrdenados = biblioteca.slice().sort((a,b) => a.titulo.localeCompare(b.titulo))
               break
+//A ordenação por data de publicação é ordenada do livro mais antigo ao mais novo.              
             case 2:
               livrosOrdenados = biblioteca.slice().sort((a,b) => {
                 if(a.publicacao.ano !== b.publicacao.ano) {
@@ -137,7 +137,7 @@ function menu(){
         rl.close()
         break
       default:
-        console.log('Digite uma opção válida!')
+        console.log('Digite uma opção existente!')
         menu()
     }
   })
