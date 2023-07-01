@@ -36,6 +36,55 @@ while (continua) {
             biblioteca.push(livro);
         break;
 
+        case "2":
+            const ordenacao = readlineSync.question(
+            `Como deseja ordenar?
+1 - Título
+2 - Data de publicação\n`);
+
+            switch (ordenacao) {
+                case "1":
+                    biblioteca.sort((a, b) => {
+                        if (a.titulo < b.titulo) {
+                            return -1;
+                        } else if (a.titulo > b.titulo) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    });
+                break;
+
+                case "2":
+                    biblioteca.sort((a, b) => {
+                        if (a.data < b.data) {
+                            return -1;
+                        } else if (a.data > b.data) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    });
+                break;
+
+                default:
+                    console.log("Opção inválida");
+            }
+
+            if (biblioteca.length === 0) {
+                console.log(`
+    ==========================================
+            Não há livros cadastrados
+    ==========================================`);
+            }
+
+            biblioteca.forEach((livro) => {
+                console.log(`Título: ${livro.titulo}
+Autor: ${livro.autor}
+Data de publicação: ${livro.data}\n`);
+            });
+        break;
+
         case "4":
             continua = false;
         break;
