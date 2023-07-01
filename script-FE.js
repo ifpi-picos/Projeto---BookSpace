@@ -107,3 +107,35 @@ function removerLivro(){
 
   })
 }
+
+function menu(){
+  console.log('Biblioteca Online:')
+  console.log('1. Cadastrar Livro')
+  console.log('2. Listar Livros')
+  console.log('3. Remover Livro')
+  console.log('0. Sair do Menu')
+  rl.question('Escolha uma das opções acima: ', (opcao) =>{
+    switch (Number(opcao)) {
+      case 1:
+        cadastroLivro()
+        break
+      case 2:
+        listarLivros()
+        break
+      case 3:
+        removerLivro()
+        break
+      case 0:
+        console.log('Programa Encerrado.')
+        rl.close()
+        break
+      default:
+        console.log('Digite uma opção válida!')
+        menu()
+    }
+  })
+}
+
+LoadBiblioteca()
+
+menu()
