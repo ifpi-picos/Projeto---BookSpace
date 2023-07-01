@@ -13,11 +13,11 @@ Aluna: Jhulia de Souza Leal
 
 while (continua) {
     const pergunta = readlineSync.question(`O que deseja fazer?
-    1 - Cadastrar livro
-    2 - Listar livros
-    3 - Remover livro
-    4 - Sair\n
-    Digite sua opção: `);
+1 - Cadastrar livro
+2 - Listar livros
+3 - Remover livro
+4 - Sair\n
+Digite sua opção: `);
     
     switch (pergunta) {
         case "1":
@@ -73,9 +73,9 @@ while (continua) {
 
             if (biblioteca.length === 0) {
                 console.log(`
-    ==========================================
-            Não há livros cadastrados
-    ==========================================`);
+==========================================
+        Não há livros cadastrados
+==========================================`);
             }
 
             biblioteca.forEach((livro) => {
@@ -83,6 +83,20 @@ while (continua) {
 Autor: ${livro.autor}
 Data de publicação: ${livro.data}\n`);
             });
+        break;
+
+        case "3":
+            const tituloRemover = readlineSync.question("Digite o título do livro que deseja remover: ");
+
+            const indice = biblioteca.findIndex((livro) => {
+                return livro.titulo.includes(tituloRemover);
+            });
+
+            if (indice === -1) {
+                console.log("Livro não encontrado");
+            }
+
+            biblioteca.splice(indice, 1);
         break;
 
         case "4":
