@@ -35,6 +35,10 @@ while (continua) {
             
             biblioteca.push(livro);
         break;
+
+        case "4":
+            continua = false;
+        break;
         
         default:
             console.log("Opção inválida");
