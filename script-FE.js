@@ -6,8 +6,9 @@ let rl = readline.createInterface({
   output: process.stdout
 })
 
-let biblioteca = []
+const biblioteca = []
 
+//Função feita para cadastrar um novo livro na biblioteca
 function cadastroLivro() {
   rl.question('Digite o título do livro:', (titulo) => {
     rl.question('Digite o autor do livro:', (autor) => {
@@ -23,6 +24,7 @@ function cadastroLivro() {
   })
 }
 
+//Função feita para salvar os dados da biblioteca em um arquivo
 function salvarBiblioteca(){
     let json_biblioteca = JSON.stringify(biblioteca)
     fs.writeFileSync('biblioteca.txt', 'utf8')
@@ -30,6 +32,7 @@ function salvarBiblioteca(){
     console.log('Biblioteca salva com sucesso!')
 }
 
+//Função feita para carregar os dados da biblioteca
 function LoadBiblioteca(){
     try{
         let data = fs.readFileSync('biblioteca.txt', 'utf8')
@@ -39,6 +42,7 @@ function LoadBiblioteca(){
     }
 }
 
+//Função para listar todos os livros da biblioteca, caso tenha algum.
 function listarLivros(){
     if(biblioteca.length === 0){
         console.log|('Nenhum livro foi encontrado.')
@@ -68,6 +72,7 @@ function listarLivros(){
           }
           for (let n = 0; n < livrosOrdenados.length; n++){
             let livro = livrosOrdenados[n]
+            
             console.log(`Livro ${n + 1}:`)
             console.log(`Título: ${livro.titulo}`)
             console.log(`Autor: ${livro.autor}`)
@@ -85,6 +90,7 @@ function listarLivros(){
     }
 }
 
+//Função feita para remover um livro da biblioteca
 function removerLivro(){
   rl.question('Digite o número do livro que você deseja remover:', (numero) =>{
     let livroEncontrado = false
@@ -108,6 +114,7 @@ function removerLivro(){
   })
 }
 
+//Função que irá mostrar o Menu Principal
 function menu(){
   console.log('Biblioteca Online:')
   console.log('1. Cadastrar Livro')
