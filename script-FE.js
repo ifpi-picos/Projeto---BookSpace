@@ -22,3 +22,19 @@ function cadastroLivro() {
     })
   })
 }
+
+function salvarBiblioteca(){
+    let json_biblioteca = JSON.stringify(biblioteca)
+    fs.writeFileSync('biblioteca.txt', 'utf8')
+    biblioteca = JSON.parse(data)
+    console.log('Biblioteca salva com sucesso!')
+}
+
+function LoadBiblioteca(){
+    try{
+        let data = fs.readFileSync('biblioteca.txt', 'utf8')
+        biblioteca = JSON.parse(data)
+    }catch (error) {
+        console.log('Falha ao carregar biblioteca.', error)
+    }
+}
