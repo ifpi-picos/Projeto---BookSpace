@@ -38,3 +38,49 @@ function LoadBiblioteca(){
         console.log('Falha ao carregar biblioteca.', error)
     }
 }
+
+function listarLivros(){
+    if(biblioteca.length === 0){
+        console.log|('Nenhum livro foi encontrado.')
+        menu()
+    } else {
+        rl.question('Deseja ordenar os livros por : \n 1. Título \n 2.Data de publicação', (opcao) =>{
+          let livrosOrdenados = []
+          switch (Number(opcao)) {
+            case 1:
+              livrosOrdenados = biblioteca.slice().sort((a,b) => a.titulo.localeCompare(b.titulo))
+              break
+            case 2:
+              livrosOrdenados = biblioteca.slice().sort((a,b) => {
+                if(a.publicacao.ano !== b.publicacao.ano) {
+                  return a.publicacao.ano - b.publicacao.ano
+                }
+                if(a.publicacao.mes !== b.publicacao.mes){
+                  return a.publicacao.mes - b.publicacao.mes
+                }
+                return a.publicacao.dia - b.publicacao.dia
+              })
+              break
+            default:
+              console.log('Opção indisponível!')
+              menu()
+              return
+          }
+          for (let n = 0; n < livrosOrdenados.length; n++){
+            let livro = livrosOrdenados[n]
+            console.log(`Livro ${n + 1}:`)
+            console.log(`Título: ${livro.titulo}`)
+            console.log(`Autor: ${livro.autor}`)
+
+            let dia = ('0' + livro.publicacao.dia).slice(-2)
+            let mes = ('0' + livro.publicacao.mes).slice(-2)
+
+            console.log(`Data de publicação: ${dia}/${mes}/${livro.publicacao.ano}`)
+            console.log('***************************************')
+          }
+          
+          menu()
+
+        })
+    }
+}
