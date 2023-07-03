@@ -66,16 +66,17 @@ const book_list = document.getElementById("book-list");
 if (window.location.pathname === '/index.html') {
   adicionar_livro.addEventListener("submit", (event) => {
     event.preventDefault();
+    console.log(event.target);
+    
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const date = document.getElementById("isbn").value;
 
-    const titulo = event.target.titulo.value;
-    const autor = event.target.autor.value;
-    const dataPublicacao = event.target.dataPublicacao.value;
+    const book = new Livro(title, author, date);
+    biblioteca.adicionar_livro(book);
 
-    const livro = new Livro(titulo, autor, dataPublicacao);
-    biblioteca.adicionar_livro(livro);
-    atualizar_tabelas();
-
-    event.target.reset();
+    // Redirecionar para a página da lista de livros
+    window.location.href = "lista_livros.html";
   });
 }
 
