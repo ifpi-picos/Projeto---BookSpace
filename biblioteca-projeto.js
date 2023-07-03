@@ -5,6 +5,11 @@ class Livro {
     this.data_publicacao = data_publicacao;
   }
 
+  // newDate () {
+  //   const newDate = this.data_publicacao.split('-')
+  //   const day = newDate[2];
+  // }; 
+
   toString() {
     return `${this.titulo} - ${this.autor} (${this.data_publicacao})`;
   }
@@ -32,17 +37,21 @@ class Biblioteca {
   }
 
   listar_livros(ordenar = "titulo") {
-    const livrosOrdenados = this.livros.slice().sort((a, b) => {
-      if (ordenar === "titulo") {
-        return a.titulo.localeCompare(b.titulo);
-      } else if (ordenar === "dataPublicacao") {
-        return new Date(a.data_publicacao) - new Date(b.data_publicacao);
-      }
-    });
-
-    livrosOrdenados.forEach(livro => console.log(livro.toString()));
-  }
-
+    let livrosOrdenados;
+  
+    if (ordenar === "titulo") {
+      livrosOrdenados = this.livros.slice().sort((a, b) =>
+        a.titulo.localeCompare(b.titulo)
+      );
+    } else if (ordenar === "dataPublicacao") {
+      livrosOrdenados = this.livros.slice().sort((a, b) =>
+        new Date(a.data_publicacao) - new Date(b.data_publicacao)
+      );
+    }
+  
+    return livrosOrdenados;
+  }  
+  
   alterar_livro(titulo, novoTitulo = null, novoAutor = null, novaDataPublicacao = null) {
     const livro = this.livros.find(l => l.titulo === titulo);
     if (livro) {
@@ -61,7 +70,7 @@ const biblioteca = new Biblioteca();
 
 const adicionar_livro = document.getElementById("book-form");
 const book_list = document.getElementById("book-list");
-//const selectOrdenar = document.getElementById("select-ordenar");
+const selectOrdenar = document.getElementById("select-ordenar");
 
 if (window.location.pathname === '/index.html') {
   adicionar_livro.addEventListener("submit", (event) => {
@@ -80,16 +89,13 @@ if (window.location.pathname === '/index.html') {
   });
 }
 
-// selectOrdenar.addEventListener("change", () => {
-//   const ordenar = selectOrdenar.value;
-//   biblioteca.listar_livros(ordenar);
-// });
-
 function atualizar_tabelas() {
   const tbody = book_list.querySelector("tbody");
   tbody.innerHTML = "";
 
-  biblioteca.livros.forEach((livro, index) => {
+  const livrosOrdenados = biblioteca.listar_livros();
+
+  livrosOrdenados.forEach((livro, index) => {
     const tr = document.createElement("tr");
 
     const tdTitulo = document.createElement("td");
@@ -133,6 +139,7 @@ function atualizar_tabelas() {
     tbody.appendChild(tr);
   });
 }
+
 
 function salvarLivros() {
   console.log(biblioteca.livros)
