@@ -2,22 +2,9 @@ body {
     font-family: 'Inconsolata', sans-serif;
     line-height: 1.6;
     background-color: black;
-    margin: 0;
-    display: flex;
-    align-items: flex-start;
+    margin-top: 40px;
     padding: 20px;
 }
-#tabela {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
 .titulo-pagina {
     font-family: 'Inconsolata', sans-serif;
     font-size: 40px;
@@ -25,40 +12,60 @@ body {
     margin-bottom: 20px;
     color: #6B2737;
 }
-th, td {
-    padding: 10px;
+#tabela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 190px;
+    margin: 0 auto;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--secondary-color);
     text-align: center;
-    border-bottom: 1px solid #ddd;
 }
-  
+
+th, td {
+    border: 1px solid #37393A;
+    padding: 10px;
+}
+
 th {
-    background-color: #f2f2f2;
+    background-color: var(--secondary-color);
     color: #6B2737;
-    font-size: 25px;
+    font-weight: bold;
 }
-  
-.striped tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+
+tr:nth-child(even) {
+    background-color: #72717f;
 }
-  
-.centered {
-    margin-left: auto;
-    margin-right: auto;
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-  
-.form-estilo {
-    margin-bottom: 10px;
-}
-  
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+
+.edit-button,
+.delete-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-  
-button:hover {
-    background-color: #45a049;
+
+.delete-button {
+    background-color: #f44336;
 }
-  
