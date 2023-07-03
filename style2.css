@@ -23,7 +23,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+<<<<<<< HEAD
     margin-top: 60px;
+=======
+    margin-top: 40px;
+>>>>>>> 40ff666ebd93907f2c6783fb6499d6376b84c7c1
     width: 100%;
 }
 .titulo-pagina {
