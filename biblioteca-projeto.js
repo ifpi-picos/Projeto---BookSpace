@@ -17,14 +17,17 @@ class Biblioteca {
 
   adicionar_livro(livro) {
     this.livros.push(livro);
+    salvarLivros();
   }
 
   remover_livro(titulo) {
     const index = this.livros.findIndex(livro => livro.titulo === titulo);
     if (index !== -1) {
       this.livros.splice(index, 1);
+      salvarLivros();
       return true;
     }
+    salvarLivros();
     return false;
   }
 
@@ -46,37 +49,40 @@ class Biblioteca {
       if (novoTitulo) livro.titulo = novoTitulo;
       if (novoAutor) livro.autor = novoAutor;
       if (novaDataPublicacao) livro.data_publicacao = novaDataPublicacao;
+      salvarLivros();
       return true;
     }
+    salvarLivros();
     return false;
   }
 }
 
 const biblioteca = new Biblioteca();
 
-const adicionar_livro = document.getElementById("form-adicionar-livro");
+const adicionar_livro = document.getElementById("book-form");
 const book_list = document.getElementById("book-list");
-const selectOrdenar = document.getElementById("select-ordenar");
+//const selectOrdenar = document.getElementById("select-ordenar");
 
-adicionar_livro.addEventListener("submit", (event) => {
-  event.preventDefault();
+if (window.location.pathname === '/index.html') {
+  adicionar_livro.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const titulo = event.target.titulo.value;
-  const autor = event.target.autor.value;
-  const dataPublicacao = event.target.dataPublicacao.value;
+    const titulo = event.target.titulo.value;
+    const autor = event.target.autor.value;
+    const dataPublicacao = event.target.dataPublicacao.value;
 
-  const livro = new Livro(titulo, autor, dataPublicacao);
-  biblioteca.adicionar_livro(livro);
-  atualizar_tabelas();
-  salvarLivros();
+    const livro = new Livro(titulo, autor, dataPublicacao);
+    biblioteca.adicionar_livro(livro);
+    atualizar_tabelas();
 
-  event.target.reset();
-});
+    event.target.reset();
+  });
+}
 
-selectOrdenar.addEventListener("change", () => {
-  const ordenar = selectOrdenar.value;
-  biblioteca.listar_livros(ordenar);
-});
+// selectOrdenar.addEventListener("change", () => {
+//   const ordenar = selectOrdenar.value;
+//   biblioteca.listar_livros(ordenar);
+// });
 
 function atualizar_tabelas() {
   const tbody = book_list.querySelector("tbody");
@@ -128,6 +134,7 @@ function atualizar_tabelas() {
 }
 
 function salvarLivros() {
+  console.log(biblioteca.livros)
   const livrosJSON = JSON.stringify(biblioteca.livros);
   localStorage.setItem('livros', livrosJSON);
 }
@@ -140,4 +147,7 @@ function carregarLivros() {
   }
 }
 carregarLivros();
-atualizar_tabela();
+
+if (window.location.pathname === '/lista_livros.html') {
+  atualizar_tabelas();
+}
