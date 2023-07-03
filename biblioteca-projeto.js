@@ -68,6 +68,7 @@ adicionar_livro.addEventListener("submit", (event) => {
   const livro = new Livro(titulo, autor, dataPublicacao);
   biblioteca.adicionar_livro(livro);
   atualizar_tabelas();
+  salvarLivros();
 
   event.target.reset();
 });
@@ -107,6 +108,7 @@ function atualizar_tabelas() {
       if (novoTitulo || novoAutor || novaDataPublicacao) {
         biblioteca.alterar_livro(livro.titulo, novoTitulo, novoAutor, novaDataPublicacao);
         atualizar_tabelas();
+        salvarLivros();
       }
     });
     tdAcoes.appendChild(btnAlterar);
@@ -116,6 +118,7 @@ function atualizar_tabelas() {
     btnRemover.addEventListener("click", () => {
       biblioteca.remover_livro(livro.titulo);
       atualizar_tabelas();
+      salvarLivros();
     });
     tdAcoes.appendChild(btnRemover);
 
@@ -123,18 +126,19 @@ function atualizar_tabelas() {
     tbody.appendChild(tr);
   });
 }
-const bookForm = document.getElementById("book-form");
 
-bookForm("submit", (event) => {
-    event.preventDefault();
+function salvarLivros() {
+  const livrosJSON = JSON.stringify(biblioteca.livros);
+  localStorage.setItem('livros', livrosJSON);
+}
 
-    const title = document.getElementById("title").value;
-    const author = document.getElementById("author").value;
-    const date = document.getElementById("isbn").value;
+function carregarLivros() {
+  const livrosJSON = localStorage.getItem('livros');
+  if (livrosJSON) {
+    const livrosArray = JSON.parse(livrosJSON);
+    biblioteca.livros = livrosArray;
+  }
+}
 
-    const book = new Livro(title, author, date);
-    library.adicionar_livro(book);
-
-    // Redirecionar para a página da lista de livros
-    window.location.href = "lista_livros.html";
-});
+carregarLivros();
+atualizar_tabelas();
