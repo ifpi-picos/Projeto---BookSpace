@@ -8,17 +8,6 @@ body {
     align-items: flex-start;
     padding: 20px;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
-    justify-content: center;
-    min-height: 100vh;
-}
 .titulo {
     display: flex;
     justify-content: center;
@@ -33,83 +22,3 @@ body {
     color: #6B2737;
     width: 100%; /*Definir a largura do elemento para ocupar a largura do contêiner*/
 }
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Open+Sans:wght@300&display=swap');
-*, *:before, *:after {
-    box-sizing: border-box;
-  }
-  
-  body {
-    padding: 24px;
-    font-family: 'Inconsolata', sans-serif;
-    margin: 0;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-  }
-  
-  .container {
-    max-width: 900px;
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin-top: -30px
-  }
-  
-  .table {
-    width: 100%;
-    border: 1px solid #eeeeee;
-  }
-  
-  .table-header {
-    display: flex;
-    width: 100%;
-    background: #6B2737;
-    padding: 18px 0;
-  }
-  
-  .table-row {
-    display: flex;
-    width: 100%;
-    padding: 18px 0;
-    background-color:  #6B2737;
-  }
-  .table-row:nth-of-type(odd) {
-    background-color: white; /*Linhas ímpares*/
-  }
-  
-  .table-data, .header__item {
-    flex: 1 1 20%;
-    text-align: center;
-  }
-  
-  .header__item {
-    text-transform: uppercase;
-  }
-  
-  .filter__link {
-    color: white;
-    text-decoration: none;
-    position: relative;
-    display: inline-block;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .filter__link::after {
-    content: "";
-    position: absolute;
-    right: -18px;
-    color: rgb(255, 255, 255);
-    font-size: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .filter__link.desc::after {
-    content: "(desc)";
-  }
-  .filter__link.asc::after {
-    content: "(asc)";
-  }
