@@ -139,6 +139,5 @@ function carregarLivros() {
     biblioteca.livros = livrosArray;
   }
 }
-
 carregarLivros();
-atualizar_tabelas();
+atualizar_tabela();
