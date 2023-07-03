@@ -4,21 +4,61 @@ body {
     background-color: black;
     margin: 0;
     display: flex;
-    justify-content: center;
     align-items: flex-start;
     padding: 20px;
 }
-.titulo {
+#tabela {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    margin-top: 60px;
-    width: 100%;
-    font-size: 25px;
+    align-items: center;
 }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
 .titulo-pagina {
     font-family: 'Inconsolata', sans-serif;
+    font-size: 40px;
     text-align: center;
+    margin-bottom: 20px;
     color: #6B2737;
-    width: 100%; /*Definir a largura do elemento para ocupar a largura do contêiner*/
 }
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+  
+th {
+    background-color: #f2f2f2;
+    color: #6B2737;
+    font-size: 25px;
+}
+  
+.striped tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+  
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.form-estilo {
+    margin-bottom: 10px;
+}
+  
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+  
+button:hover {
+    background-color: #45a049;
+}
+  

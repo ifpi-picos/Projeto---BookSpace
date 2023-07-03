@@ -10,24 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="titulo">
-            <h1 class="titulo-pagina">Lista de livros</h1>
+        <h1 class="titulo-pagina">Lista de livros</h1>
+        <div id="tabela">
+            <table id="book-list">>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor(es)</th>
+                        <th>Data de publicação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="book-list-body"></tbody>
+            </table>
         </div>
-        <table class="striped centered" id="tabela-livros">
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Data de Publicação</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-               
-            </tbody>
-        </table>
-    </div>
     <script src="biblioteca-projeto.js"></script>
 </body>
 </html>
