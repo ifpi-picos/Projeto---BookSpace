@@ -133,7 +133,35 @@
             </thead>
     </div>
 </div>
-</div>    
+</div>
+<script>
+    const bookList = document.getElementById("book-list");
+
+    function atualizarTabela() {
+        const books = JSON.parse(localStorage.getItem("books")) || [];
+        const tbody = bookList.querySelector("tbody");
+        tbody.innerHTML = "";
+
+        books.forEach((book) => {
+            const tr = document.createElement("tr");
+
+            const tdTitle = document.createElement("td");
+            tdTitle.textContent = book.title;
+            tr.appendChild(tdTitle);
+
+            const tdAuthor = document.createElement("td");
+            tdAuthor.textContent = book.author;
+            tr.appendChild(tdAuthor);
+
+            const tdIsbn = document.createElement("td");
+            tdIsbn.textContent = book.isbn;
+            tr.appendChild(tdIsbn);
+
+            tbody.appendChild(tr);
+        });
+    }
+    atualizarTabela();
+</script>    
 <script src="biblioteca-projeto.js"></script>
 </body>
 </html>
