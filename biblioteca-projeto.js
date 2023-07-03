@@ -125,15 +125,15 @@ function atualizar_tabelas() {
 }
 const bookForm = document.getElementById("book-form");
 
-book("submit", (event) => {
+bookForm("submit", (event) => {
     event.preventDefault();
 
-    const title document.getElementById("title").value;
+    const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const date = document.getElementById("isbn").value;
 
-    const book = new Book(title, author, date);
-    library.addBook(book);
+    const book = new Livro(title, author, date);
+    library.adicionar_livro(book);
 
     // Redirecionar para a página da lista de livros
     window.location.href = "lista_livros.html";
