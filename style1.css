@@ -63,7 +63,7 @@ h1 {
 .form-estilo {
     border: 2px double #271e48;
 }
-a {
+button {
     position: absolute;
     top: 90%; 
     left: 50%;
@@ -82,7 +82,7 @@ a {
     border-radius: 30px; /*Arredonda as bordas*/
     z-index: 1;
   }
-  a:hover {
+  button:hover {
     animation: animate 8s linear infinite;
   }
   @keyframes animate {
@@ -93,7 +93,7 @@ a {
       background-position: 400%; /*Posição final do gradiente*/
     }
   }
-  a:before {
+  button:before {
     content: ""; /*Define a posição do pseudoelemento como vazio*/
     position: absolute;
     top: -5px;
@@ -107,7 +107,7 @@ a {
     opacity: 0;
     transition: 0.5%;
   }
-  a:hover:before { 
+  button:hover:before { 
     filter: blur(20px); /*Desfoque*/
     opacity: 1;
     animation: animate 8s linear infinite;

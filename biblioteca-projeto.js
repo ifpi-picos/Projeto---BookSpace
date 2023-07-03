@@ -55,7 +55,7 @@ class Biblioteca {
 const biblioteca = new Biblioteca();
 
 const adicionar_livro = document.getElementById("form-adicionar-livro");
-const book_list = document.getElementById("tabela-livros");
+const book_list = document.getElementById("book-list");
 const selectOrdenar = document.getElementById("select-ordenar");
 
 adicionar_livro.addEventListener("submit", (event) => {
@@ -123,3 +123,18 @@ function atualizar_tabelas() {
     tbody.appendChild(tr);
   });
 }
+const bookForm = document.getElementById("book-form");
+
+book("submit", (event) => {
+    event.preventDefault();
+
+    const title document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const date = document.getElementById("isbn").value;
+
+    const book = new Book(title, author, date);
+    library.addBook(book);
+
+    // Redirecionar para a página da lista de livros
+    window.location.href = "lista_livros.html";
+});
