@@ -27,22 +27,6 @@
             </form>
         </div>
     </div>
-    <script>
-        const bookForm = document.getElementById("book-form");
-
-        bookForm.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            const title = document.getElementById("title").value;
-            const author = document.getElementById("author").value;
-            const date = document.getElementById("isbn").value;
-
-            const book = new Livro(title, author, date);
-            biblioteca.adicionar_livro(book);
-
-            // Redirecionar para a página da lista de livros
-            window.location.href = "lista_livros.html";
-        });
-    </script>
+    <script src="biblioteca-projeto.js"></script>
 </body>
 </html>
