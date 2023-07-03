@@ -27,6 +27,29 @@
             </form>
         </div>
     </div>
+    <script>
+        const bookForm = document.getElementById("book-form");
+
+        bookForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const title = document.getElementById("title").value;
+            const author = document.getElementById("author").value;
+            const isbn = document.getElementById("isbn").value;
+
+            const book = {
+                title: title,
+                author: author,
+                isbn: isbn
+            };
+
+            let books = JSON.parse(localStorage.getItem("books")) || [];
+            books.push(book);
+            localStorage.setItem("books", JSON.stringify(books));
+
+            bookForm.reset();
+        });
+    </script>
 </body>
 
 
