@@ -11,19 +11,20 @@ body {
 }
 .container {
     text-align: center;
-    width: 20%;
+    justify-content: flex-start;
+    margin-top: -110px;
 }
 .content {
     text-align: center;
-    color: hsl(231, 35%, 78%);
+    color: #6B2737;
 }
 form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
 }
 form label {
-    margin-top: 80px;
+    margin-top: 10px;
     font-size: 25px;
     font-weight: bold;
 }
@@ -49,9 +50,9 @@ table thead th {
     text-transform: uppercase;
 }
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 150px;
     font-size: 80px;
-    color: hsl(231, 35%, 78%);
+    color: #6B2737;
 }
 /* Estilização do botão "Adicionar livro" quando o mouse estiver sobre ele */
 #book-form button:hover {
@@ -68,16 +69,15 @@ a {
     left: 50%;
     transform: translate(-50%, -50%); /*Realiza um deslocamento de 50% para esquerda e para cima*/
     width: 200px; /*Define a largura do elemento*/
-    height: 60px; /*Define a altura do elemento */
-    text-align: center; 
     line-height: 60px; /*Define a altura da linha igual a altura do elemento, centralizando verticalmente o texto */
-    color: #ffff; /*Cor do texto*/
-    font-size: 24px;
-    text-transform: uppercase;
+    color: #6B2737; /*Cor do texto*/
+    font-size: 25px;
     text-decoration: none;
-    font-family: 'Inconsolata';
+    font-weight: bold;
+    font-family: 'Inconsolata', sans-serif;
     box-sizing: border-box;
-    background: linear-gradient(90deg,  hsl(231, 35%, 78%), #9198c9, #3b395b);
+    background-color: #fafafa;
+    background: linear-gradient(90deg, #6B2737 #af3358, #f55ac1);
     background-size: 400%;
     border-radius: 30px; /*Arredonda as bordas*/
     z-index: 1;
