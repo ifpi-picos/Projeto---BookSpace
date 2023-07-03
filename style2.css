@@ -1,5 +1,5 @@
 body {
-    font-family: 'Inconsolata';
+    font-family: 'Inconsolata', sans-serif;
     line-height: 1.6;
     background-color: black;
     margin: 0;
@@ -23,17 +23,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-<<<<<<< HEAD
     margin-top: 60px;
-=======
-    margin-top: 40px;
->>>>>>> 40ff666ebd93907f2c6783fb6499d6376b84c7c1
     width: 100%;
+    font-size: 25px;
 }
 .titulo-pagina {
     font-family: 'Inconsolata', sans-serif;
     text-align: center;
-    color: hsl(231, 35%, 78%);
+    color: #6B2737;
     width: 100%; /*Definir a largura do elemento para ocupar a largura do contêiner*/
 }
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Open+Sans:wght@300&display=swap');
@@ -70,7 +67,7 @@ body {
   .table-header {
     display: flex;
     width: 100%;
-    background: hsl(231, 35%, 78%);
+    background: #6B2737;
     padding: 18px 0;
   }
   
@@ -78,7 +75,7 @@ body {
     display: flex;
     width: 100%;
     padding: 18px 0;
-    background-color:  hsl(231, 35%, 78%);
+    background-color:  #6B2737;
   }
   .table-row:nth-of-type(odd) {
     background-color: white; /*Linhas ímpares*/
